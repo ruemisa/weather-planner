@@ -1,13 +1,7 @@
-const initialState = {
-    // NOTE: Thinking of spreading this object out into just lat and lon
-    location: {
-        lat: null,
-        lon: null
-    }
-}
+import { combineReducers } from 'redux';
 
-const reducer = (state = initialState, action) => {
-    return state;
-};
+export default combineReducers({
+    replaceMe: () => 'replace me'
+});
 
-export default reducer;
+// NOTE: Add a dummy reducer that returns a dummy value to trick redux into thinking that we have a reducer for the store. REMEMBER to replace later
