@@ -10,13 +10,13 @@ class CurrentWeather extends Component {
     }
 
     render() {
-
+        console.log(this.props.location);
         return(
             <div>
                 <div>
                     USER LOCATION
-                    <p>lat:</p>
-                    <p>lon:</p>
+                    <p>lat: {this.props.location ? this.props.location.lat : null } </p>
+                    <p>lon: {this.props.location ? this.props.location.lon : null}</p>
                 </div>
                 Current Weather
             </div>
@@ -24,5 +24,13 @@ class CurrentWeather extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        location: state.geolocation.location
+    }
+};
 
-export default connect(null, { getUserLocation })(CurrentWeather);
+export default connect(
+    mapStateToProps, 
+    { getUserLocation }
+)(CurrentWeather);

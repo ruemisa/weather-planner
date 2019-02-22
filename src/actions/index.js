@@ -6,14 +6,19 @@ export const getUserLocation = () => {
 
     return async dispatch => {
         // Using Browser Geolocation API to get user's device current location
-        const location = await window.navigator.geolocation.getCurrentPosition(
+        await navigator.geolocation.getCurrentPosition(
             position => {
-                console.log(position)
+                dispatch({ 
+                    type: GET_LOCATION, 
+                    payload: position.coords
+                })
             },
-            error => console.log(error)
+            error => {
+                // DO SOME ERROR HANDLING HERE
+                console.log(error)
+            }
         );
         
-        dispatch({ type: GET_LOCATION, payload: location })
         
     };
 

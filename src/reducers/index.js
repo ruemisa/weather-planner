@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
+import geolocationReducer from './geolocationReducer';
 
+// All separate reducers are combined here rather than writing all logic of reducers in one file
 export default combineReducers({
-    replaceMe: () => 'replace me'
+    geolocation: geolocationReducer
 });
-
-// NOTE: Add a dummy reducer that returns a dummy value to trick redux into thinking that we have a reducer for the store. REMEMBER to replace later
