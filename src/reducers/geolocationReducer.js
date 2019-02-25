@@ -10,6 +10,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 location: {
+                    ...state.location,
                     lat: action.payload.latitude,
                     lon: action.payload.longitude
                 }

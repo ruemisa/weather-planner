@@ -12,15 +12,17 @@ class CurrentWeather extends Component {
     }
 
     render() {
-        console.log(this.props.location);
+        // console.log(this.props.location);
+        console.log(this.props.currentTemp)
         return(
             <div>
                 <div>
                     USER LOCATION
                     <p>lat: {this.props.location ? this.props.location.lat : null } </p>
                     <p>lon: {this.props.location ? this.props.location.lon : null}</p>
+                    <h1>{this.props.currentTemp}</h1>
                 </div>
-                Current Weather
+                
             </div>
         )
     }
@@ -28,7 +30,9 @@ class CurrentWeather extends Component {
 
 const mapStateToProps = state => {
     return {
-        location: state.geolocation.location
+        location: state.geolocation.location,
+        // TODO: FIX THIS CHECK
+        currentTemp: state.weather.weather ? state.weather.weather.currentTemp : null
     }
 };
 
