@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserLocation, getWeatherForecast } from '../../actions';
+import { getLocation, getWeather } from '../../actions';
 
 class CurrentWeather extends Component {
 
     componentDidMount() {
         // Grabbing user device location upon App load
-        this.props.getUserLocation();
+        this.props.getLocation();
         // NOTE: This one is just a test
-        this.props.getWeatherForecast();
+        this.props.getWeather();
     }
 
     render() {
@@ -41,7 +41,7 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps, 
     { 
-        getUserLocation,
-        getWeatherForecast
+        getLocation,
+        getWeather
     }
 )(CurrentWeather);

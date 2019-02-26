@@ -4,7 +4,7 @@ import { GET_LOCATION, GET_WEATHER } from './types';
 import { DARK_SKY_API, DARK_SKY_URL, PROXY } from '../utils/apis/darksky';
 
 // Although I really don't need this to be an async action creator, I did it anyway to make it more consistent with other action creators
-export const getUserLocation = () => {
+export const getLocation = () => {
     // NOTE: Refactor code later on and place in separate helper files
 
     return async dispatch => {
@@ -27,7 +27,7 @@ export const getUserLocation = () => {
 };
 
 // Action Creator for Getting Weather Data from Darksky
-export const getWeatherForecast = (lat, lon) => {
+export const getWeather = (lat, lon) => {
 
     return async dispatch => {
         // ${lat},${lon}
