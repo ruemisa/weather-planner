@@ -21,6 +21,7 @@ class CurrentWeather extends Component {
                     <p>lat: {this.props.location ? this.props.location.lat : null } </p>
                     <p>lon: {this.props.location ? this.props.location.lon : null}</p>
                     <h1>{this.props.currentTemp}</h1>
+                    <h3>{this.props.summary}</h3>
                 </div>
                 
             </div>
@@ -32,7 +33,8 @@ const mapStateToProps = state => {
     return {
         location: state.geolocation.location,
         // TODO: FIX THIS CHECK
-        currentTemp: state.weather.weather ? state.weather.weather.currentTemp : null
+        currentTemp: state.weather.weather ? state.weather.weather.currentTemp : null,
+        summary: state.weather.weather ? state.weather.weather.summary : null
     }
 };
 

@@ -32,7 +32,7 @@ export const getWeatherForecast = (lat, lon) => {
     return async dispatch => {
         // ${lat},${lon}
         const response = await axios.get(`${PROXY}/${DARK_SKY_URL}/${DARK_SKY_API}/40.684984799999995,-73.9418488`);
-        // console.log(response.data);
+        console.log(response.data);
 
         dispatch({
             type: GET_WEATHER,

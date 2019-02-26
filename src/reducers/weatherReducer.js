@@ -11,7 +11,9 @@ export default (state = initialState, action) => {
                 ...state,
                 weather: {
                     ...state.weather,
-                    currentTemp: action.payload.currently.temperature
+                    // TODO: Refactor this outside of this function
+                    currentTemp: action.payload.currently.temperature,
+                    summary: action.payload.currently.summary
                 }
             }
         
