@@ -6,9 +6,9 @@ class CurrentWeather extends Component {
 
     componentDidMount() {
         // Grabbing user device location upon App load
-        this.props.getLocation();
+        this.props.getUserLocation();
         // NOTE: This one is just a test
-        this.props.getWeather();
+        this.props.getWeatherForecast();
     }
 
     render() {
@@ -38,10 +38,11 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(
-    mapStateToProps, 
-    { 
-        getLocation,
-        getWeather
+const mapDispatchToProps = dispatch => {
+    return {
+        getUserLocation: () => dispatch(getLocation()),
+        getWeatherForecast: () => dispatch(getWeather())
     }
-)(CurrentWeather);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentWeather);
